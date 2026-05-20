@@ -4,20 +4,20 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 
-// ========== ВЕБ-СЕРВЕР ДЛЯ KEEP-ALIVE (чтобы бот не засыпал) ==========
+// ========== ВЕБ-СЕРВЕР ДЛЯ ПИНГОВ (чтобы бот не засыпал) ==========
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/keep-alive', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Bot is alive!');
 });
 
-app.get('/', (req, res) => {
-    res.send('Voice Sound Bot is running!');
+app.get('/keep-alive', (req, res) => {
+    res.send('Still alive!');
 });
 
 app.listen(PORT, () => {
-    console.log(`🌐 Keep-alive server running on port ${PORT}`);
+    console.log(`✅ Keep-alive server running on port ${PORT}`);
 });
 
 // ========== DISCORD БОТ ==========
@@ -43,7 +43,7 @@ if (!TOKEN) {
 const SOUNDS_DIR = path.join(__dirname, 'sounds');
 const AUDIO_DIR = path.join(SOUNDS_DIR, 'audio');
 
-// Создаём папки если их нет (на Render они уже должны быть из репозитория)
+// Создаём папки если их нет
 if (!fs.existsSync(SOUNDS_DIR)) fs.mkdirSync(SOUNDS_DIR, { recursive: true });
 if (!fs.existsSync(AUDIO_DIR)) fs.mkdirSync(AUDIO_DIR, { recursive: true });
 
