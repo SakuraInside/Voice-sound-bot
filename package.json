@@ -1,0 +1,21 @@
+{
+  "name": "voice-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for voice sound effects",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@discordjs/opus": "^0.10.0",
+    "@discordjs/voice": "^0.19.2",
+    "discord.js": "^14.26.4",
+    "express": "^5.2.1",
+    "ffmpeg-static": "^5.3.0"
+  }
+}
